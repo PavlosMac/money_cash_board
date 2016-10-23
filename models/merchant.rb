@@ -12,10 +12,22 @@ attr_reader :id, :name
 
   def save
     sql = "INSERT INTO merchants (name) VALUES '#{@name}' RETURNING *"
-    results = SqlRunner.run(sql).first
-    @id = results['id'].to_i
+    merchant_data = SqlRunner.run(sql).first
+    @id = merchant_data['id'].to_i
   end
 
+  def delete(id)
+    sql = "DELETE FROM merchants WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
 
+  def update(data)
+    sql = "UPDATE merchants SET name = '#{data[:name]}' WHERE id = #{data[:id]}"
+  end
+
+  def self.delete_all
+    sql = "DELETE * FROM merchants"
+    SqlRunner.run(sql)
+  end
 
 end
