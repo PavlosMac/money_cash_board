@@ -13,9 +13,21 @@ attr_reader :id, :merchant_id, :category_id, :cost
  
  def save
   sql = "INSERT INTO transactions (merchant_id, category_id, cost) VALUES 
-          ('#{@merchant_id}', '#{@category_id}', #{@cost} ) RETURNING *"
-  transactions_data = SqlRunner.run(sql)
-  @id = transactions_data.first.to_i
+          (#{@merchant_id}, #{@category_id}, #{@cost} ) RETURNING *"
+  transactions_data = SqlRunner.run(sql).first
+  @id = transactions_data['id'].to_i
+ end
+
+ def merchant
+  sql = "SELECT name FROM merchants WHERE id = #{@merchant_id}"
+  data = SqlRunner.run(sql).first
+  return data['name']
+ end
+
+ def category
+  sql = "SELECT description FROM categories WHERE id = #{@category_id}"
+  data = SqlRunner.run(sql).first
+  return data['description']
  end
 
  def update

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-      <html>
-      <head>
-          <title>Frugality</title>
-          <link rel="stylesheet" type="text/css" href="/style.css">
-        <head>
+<html>
+<head>
+  <title>Frugality</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <head>
     <body>
-      <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="/new_entry">Entry</a></li>
-        <li><a href="#/transactions">Transactions</a></li>
-        <li><a href="#/merchants">Merchants</a></li>
-      <%= yield %>
-      </ul>
+      <nav>
+        <div>
+          <ul>
+            <li id="li1"><a class="active" href="/">Home</a></li>
+            <li id="li1"><a href="/transactions">Transactions</a></li>
+            <li id="li1"><a href="/categories">Categories</a></li>
+            <li id="li1"><a href="/merchants">Merchants</a></li>
+            <%= yield %>
+          </ul>
+        </div>
+      </nav>
     </body>
     </html>
+
+
+ 

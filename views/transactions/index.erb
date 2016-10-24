@@ -1,31 +1,27 @@
-<div>
-  <h1>Transactions</h1>
+<h1>Transactions</h1>
   <link rel="stylesheet" type="text/css" href="/style.css">
   <table>
     <thead>
-      <th>Id</th>
-      <th>merchant name</th>
-      <th>category description</th>
-      <th>cost</th>
+        <th>Id</th>
+        <th>Merchant name</th>
+        <th>Category</th>
+        <th>Cost</th>
     </thead>
-    <% for transaction in @transactions %>
-    <% for merchant in @merchants %>
-    <% for category in @categories %>
-    <tr>
-      <td><%= transaction.id %>
-      <td><%=   merchant.name %></td>
-      <td><%= category.description %></td>
+    <% @transactions.each do |transaction| %>
+      <td><%= transaction.id %></td>
+      <td><%= transaction.merchant %></td>
+      <td><%= transaction.category %></td>
       <td><%= transaction.cost %></td>
-      <td>
-        <a href="/transactions/<%= transaction.id %>">View</a>
-      </td>
+      <td><a href="/transactions/<%= transaction.id %>">View</a></td>
       <td>
         <form action="/transactions/<%= transaction.id %>" method="post">
-          <input type="hidden" name="_method" value="delete" /><br>
-          <input type="submit" value="Delete" />
+        <input type="hidden" name="_method" value="delete" >
+        <input type="submit" value="Delete" >
         </form>
       </td>
+      <tr>
+        <% end %>
   </table>
-  <% end %>
-</div>
+  
+
 

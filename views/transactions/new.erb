@@ -7,12 +7,18 @@
     <% @merchants.each do |merchant| %>
     <option value="<%= merchant.id %>"><%= merchant.name  %></option> 
     <% end %>
-</select><br>
+</select> |
 <label for="category_id">Category description:</label>
 <select name="category_id" id="category_id">
     <% @categories.each do |category| %>
     <option value="<%= category.id %>"><%= category.description %></option>
     <% end %>
-</select><br>
-<input type="submit" value="Submit entry">
+</select>|
+  <label for="cost">Cost</label>
+  <input type="number" name="cost">
+  <input type='submit' value="Submit entry">
 </form>
+
+
+
+
