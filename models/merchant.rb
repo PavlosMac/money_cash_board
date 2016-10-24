@@ -16,7 +16,7 @@ attr_reader :id, :name
     @id = merchant_data['id'].to_i
   end
 
-  def delete(id)
+  def self.delete(id)
     sql = "DELETE FROM merchants WHERE id = #{id}"
     SqlRunner.run(sql)
   end

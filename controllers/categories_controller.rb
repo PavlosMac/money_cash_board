@@ -22,3 +22,10 @@ get '/categories/:id' do
  @category = Category.find( params[:id] )
  erb(:'categories/show')
 end 
+
+delete '/categories/:id' do
+    Category.delete( params[:id] )
+    redirect to('/categories')
+end
+
+

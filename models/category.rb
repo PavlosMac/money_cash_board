@@ -22,7 +22,7 @@ attr_reader :id, :description
     SqlRunner.run(sql)
   end
 
-  def delete(id)
+  def self.delete(id)
     sql = "DELETE FROM categories WHERE id = #{id}"
     SqlRunner.run(sql)
   end

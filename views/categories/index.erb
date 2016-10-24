@@ -3,17 +3,23 @@
 <table>
   <thead>
     <th>Id</th>
-    <th>Name</th>
+    <th>Description</th>
   </thead>
   <% for category in @categories %>
   <tr>
     <td><%=   category.id %></td>
     <td><%= category.description %></td>
+    <td><a href="/categories/<%= category.id %>">View</a></td>
     <td>
-      <a href="/categories/<%= category.id %>">View</a>
+      <form action="/categories/<%= category.id %>" method="post">
+        <input type="hidden" name="_method" value="delete" /><br>
+        <input type="submit" value="Delete" />
+      </form>
     </td>
-    <td>
-  <% end %>
+  </tr>
+    <% end %>
 </table>
-<br>
+  
+
+
 <a href="/categories/new">Add new category</a>

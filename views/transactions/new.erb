@@ -1,0 +1,18 @@
+<h2>New Transaction</h2>
+
+<form action="/transactions" method="post">        
+
+<label for="merchant_id">Merchant:</label>
+<select name="merchant_id" id="merchant_id">    
+    <% @merchants.each do |merchant| %>
+    <option value="<%= merchant.id %>"><%= merchant.name  %></option> 
+    <% end %>
+</select><br>
+<label for="category_id">Category description:</label>
+<select name="category_id" id="category_id">
+    <% @categories.each do |category| %>
+    <option value="<%= category.id %>"><%= category.description %></option>
+    <% end %>
+</select><br>
+<input type="submit" value="Submit entry">
+</form>

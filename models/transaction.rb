@@ -2,6 +2,8 @@ require_relative('../db/sql_runner')
 
 class Transaction
 
+attr_reader :id, :merchant_id, :category_id, :cost
+
   def initialize( options )
     @id = options['id'].to_i
     @merchant_id = options['merchant_id'].to_i
@@ -12,8 +14,8 @@ class Transaction
  def save
   sql = "INSERT INTO transactions (merchant_id, category_id, cost) VALUES 
           ('#{@merchant_id}', '#{@category_id}', #{@cost} ) RETURNING *"
-  transactions_data = Transaction.map_items(sql)
-  return transactions_data
+  transactions_data = SqlRunner.run(sql)
+  @id = transactions_data.first.to_i
  end
 
  def update
