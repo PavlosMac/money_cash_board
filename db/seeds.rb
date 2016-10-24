@@ -1,25 +1,25 @@
 require('pry-byebug')
-require_relative('../models/item')
+require_relative('../models/category')
 require_relative('../models/merchant')
 require_relative('../models/transaction')
 
-Item.delete_all
-Merchant.delete_all
 Transaction.delete_all
+Merchant.delete_all
+Category.delete_all
 
 
-@item1 = Item.new( {'description' => 'food'} )
-@item1.save
-@item2 = Item.new( {'description' => 'electricity'} )
-@item2.save
-@item3 = Item.new( {'description' => 'wood'} )
-@item3.save
-@item4 = Item.new( {'description' => 'clothes'} )
-@item4.save
-@item5 = Item.new( {'description' => 'beer'} )
-@item5.save
-@item6 = Item.new( {'description' => 'rent'} )
-@item6.save
+@category1 = Category.new( {'description' => 'food'} )
+@category1.save
+@category2 = Category.new( {'description' => 'electricity'} )
+@category2.save
+@category3 = Category.new( {'description' => 'wood'} )
+@category3.save
+@category4 = Category.new( {'description' => 'clothes'} )
+@category4.save
+@category5 = Category.new( {'description' => 'beer'} )
+@category5.save
+@category6 = Category.new( {'description' => 'rent'} )
+@category6.save
 
 
 @merchant1 = Merchant.new( {'name' => 'scottish power'} )
@@ -38,9 +38,10 @@ Transaction.delete_all
 
 
 
-# @transaction1 = Transaction.new( { 'merchant_id' => @merchant1.id, 'item_id' => @item2.id })
-# @transaction1.save
-# @transaction2 = Transaction.new( { 'merchant_id' => @merchant2.id, 'item_id' => @item1.id })
-# @transaction2.save
+@transaction1 = Transaction.new( { 'merchant_id' => @merchant1.id, 'category_id' => @category1.id, 'cost' => 29.00 } )
+@transaction1.save
+@transaction2 = Transaction.new( { 'merchant_id' => @merchant2.id, 'category_id' => @category3.id, 'cost' => 29.00  } )
+@transaction2.save
 
-
+binding.pry
+nil

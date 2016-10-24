@@ -1,0 +1,19 @@
+<h1>Categories</h1>
+<link rel="stylesheet" type="text/css" href="/style.css">
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+  </thead>
+  <% for category in @categories %>
+  <tr>
+    <td><%=   category.id %></td>
+    <td><%= category.description %></td>
+    <td>
+      <a href="/categories/<%= category.id %>">View</a>
+    </td>
+    <td>
+  <% end %>
+</table>
+<br>
+<a href="/categories/new">Add new category</a>

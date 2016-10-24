@@ -5,19 +5,19 @@ class Transaction
   def initialize( options )
     @id = options['id'].to_i
     @merchant_id = options['merchant_id'].to_i
-    @item_id = options['item_id'].to_i
+    @category_id = options['category_id'].to_i
     @cost = options['cost'].to_f
   end
  
  def save
-  sql = "INSERT INTO transactions (merchant_id, item_id, cost) VALUES 
-          ('#{@merchant_id}', '#{@item_id}', #{@cost} ) RETURNING *"
+  sql = "INSERT INTO transactions (merchant_id, category_id, cost) VALUES 
+          ('#{@merchant_id}', '#{@category_id}', #{@cost} ) RETURNING *"
   transactions_data = Transaction.map_items(sql)
-  return transactions
+  return transactions_data
  end
 
  def update
-  sql = "UPDATE transactions SET ( merchant_id, item_id, cost) = (#{@merchant_id}, #{@item_id}, #{@cost} ) WHERE id = #{@id}"
+  sql = "UPDATE transactions SET ( merchant_id, category_id, cost) = (#{@merchant_id}, #{@item_id}, #{@cost} ) WHERE id = #{@id}"
   SqlRunner.run(sql)
   end
 
@@ -38,7 +38,7 @@ def self.all
 end
 
 def self.delete_all
-  sql = "DELETE * FROM transactions"
+  sql = "DELETE FROM transactions"
   SqlRunner.run(sql)
 end
 

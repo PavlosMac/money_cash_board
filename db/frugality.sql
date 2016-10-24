@@ -1,5 +1,5 @@
 DROP TABLE transactions;
-DROP TABLE items;
+DROP TABLE categories;
 DROP TABLE merchants;
 
 
@@ -9,15 +9,15 @@ CREATE TABLE merchants(
 );
 
 
-CREATE TABLE items(
+CREATE TABLE categories(
   id SERIAL4 PRIMARY KEY,
   description VARCHAR(255)
 );
 
 CREATE TABLE transactions(
   id SERIAL4  PRIMARY KEY,
-  merchant_id int4 references merchants(id),
-  item_id int4 references items(id),
+  merchant_id int4 references merchants(id) ON DELETE CASCADE,
+  category_id int4 references categories(id) ON DELETE CASCADE,
   cost money
 );
 

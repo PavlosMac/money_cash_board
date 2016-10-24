@@ -11,7 +11,7 @@ attr_reader :id, :name
   end 
 
   def save
-    sql = "INSERT INTO merchants (name) VALUES '#{@name}' RETURNING *"
+    sql = "INSERT INTO merchants (name) VALUES ('#{@name}') RETURNING *"
     merchant_data = SqlRunner.run(sql).first
     @id = merchant_data['id'].to_i
   end
@@ -26,8 +26,29 @@ attr_reader :id, :name
   end
 
   def self.delete_all
-    sql = "DELETE * FROM merchants"
+    sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
+  end
+
+  def self.all
+    sql = "SELECT * FROM merchants"
+    results = Merchant.map_items(sql)
+    return results
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM merchants WHERE id = #{id}"
+    return Merchant.map_item(sql)
+  end
+
+  def self.map_items(sql)
+    data = SqlRunner.run(sql)
+    results = data.map{ |merchant| Merchant.new(merchant) }
+    return results
+  end
+
+  def self.map_item(sql)
+    return Merchant.map_items(sql).first
   end
 
 end
