@@ -43,5 +43,7 @@ Category.delete_all
 @transaction2 = Transaction.new( { 'merchant_id' => @merchant2.id, 'category_id' => @category3.id, 'currency' => 49.00  } )
 @transaction2.save
 
+@total = @merchant.total(1)
+
 binding.pry
 nil

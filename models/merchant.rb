@@ -25,6 +25,12 @@ attr_reader :id, :name
     sql = "UPDATE merchants SET name = '#{data[:name]}' WHERE id = #{data[:id]}"
   end
 
+  def total(id)
+   sql = "SELECT sum(currency) FROM transactions WHERE merchant_id = #{id}"
+   data = SqlRunner.run(sql).first
+   return data['sum'].to_f
+  end
+
   def self.delete_all
     sql = "DELETE FROM merchants"
     SqlRunner.run(sql)

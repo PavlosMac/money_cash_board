@@ -11,7 +11,7 @@
   <% @transactions.each do |transaction| %>
   <tr>
     <td><%= transaction.id %></td>
-    <td><%= transaction.merchant %></td>
+    <td><a href="/merchants/<%= transaction.merchant_id %>"><%= transaction.merchant %></td>
     <td><%= transaction.category %></td>
     <td><%= transaction.currency %></td>
     <td><a href="/transactions/<%= transaction.id %>">View</a></td>

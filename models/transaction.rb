@@ -30,7 +30,9 @@ attr_reader :id, :merchant_id, :category_id, :currency
   return data['description']
  end
 
- def self.update(data)
+
+
+def self.update(data)
   sql = "UPDATE transactions SET currency = #{data['currency']}  WHERE id = #{data['id']}"
   SqlRunner.run(sql)
 end
