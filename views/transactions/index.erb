@@ -7,6 +7,7 @@
     <th>Category</th>
     <th>Cost</th>
   </thead>
+    
   <% @transactions.each do |transaction| %>
   <tr>
     <td><%= transaction.id %></td>
@@ -22,7 +23,10 @@
   <% end %>
 </table>
 <br>
+<h3>Total Expenditure:</h3>£<%= @total %><br><br>
 <a href="/transactions/new">Add new transaction</a>
+
+
 
 
 
