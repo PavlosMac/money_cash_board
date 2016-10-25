@@ -7,24 +7,22 @@
     <th>Category</th>
     <th>Cost</th>
   </thead>
- <% @transactions.each do |transaction| %>
+  <% @transactions.each do |transaction| %>
   <tr>
     <td><%= transaction.id %></td>
     <td><%= transaction.merchant %></td>
     <td><%= transaction.category %></td>
     <td><%= transaction.currency %></td>
     <td><a href="/transactions/<%= transaction.id %>">View</a></td>
-    <td>
-    <form action="/transactions/<%= transaction.id %>" method="post">
+    <td><form action="/transactions/<%= transaction.id %>" method="post">
       <input type="hidden" name="_method" value="delete" >
       <input type="submit" value="Delete" >
-    </form>
-    </td>
+    </form></td>
   </tr>
   <% end %>
 </table>
 <br>
 <a href="/transactions/new">Add new transaction</a>
-  
+
 
 

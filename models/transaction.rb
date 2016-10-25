@@ -30,10 +30,11 @@ attr_reader :id, :merchant_id, :category_id, :currency
   return data['description']
  end
 
- def update
-  sql = "UPDATE transactions SET ( merchant_id, category_id, cost) = (#{@merchant_id}, #{@item_id}, #{@cost} ) WHERE id = #{@id}"
+ def self.update(data)
+  sql = "UPDATE transactions SET currency = #{data['currency']}  WHERE id = #{data['id']}"
   SqlRunner.run(sql)
 end
+
 
 def self.total
     sql = "SELECT SUM(currency) FROM transactions"
