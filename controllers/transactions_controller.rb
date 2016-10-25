@@ -6,6 +6,7 @@ require_relative('../models/merchant')
 
 get '/transactions' do
     @transactions = Transaction.all
+    @total = Transaction.total
     erb(:'transactions/index')
 end
 
@@ -18,6 +19,16 @@ end
 post '/transactions' do
     @transaction = Transaction.new( params )
     @transaction.save
+    redirect to('/transactions')
+end
+
+get '/transactions/:id' do
+    @transaction = Transaction.find( params[:id] )
+    erb(:'transactions/show')
+end
+
+delete '/transactions/:id' do
+    Transaction.delete( params[:id] )
     redirect to('/transactions')
 end
 

@@ -38,9 +38,9 @@ Category.delete_all
 
 
 
-@transaction1 = Transaction.new( { 'merchant_id' => @merchant1.id, 'category_id' => @category1.id, 'cost' => 29.00 } )
+@transaction1 = Transaction.new( { 'merchant_id' => @merchant1.id, 'category_id' => @category1.id, 'currency' => 29.00 } )
 @transaction1.save
-@transaction2 = Transaction.new( { 'merchant_id' => @merchant2.id, 'category_id' => @category3.id, 'cost' => 49.00  } )
+@transaction2 = Transaction.new( { 'merchant_id' => @merchant2.id, 'category_id' => @category3.id, 'currency' => 49.00  } )
 @transaction2.save
 
 binding.pry

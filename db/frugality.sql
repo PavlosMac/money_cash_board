@@ -18,6 +18,6 @@ CREATE TABLE transactions(
   id SERIAL4  PRIMARY KEY,
   merchant_id int4 references merchants(id) ON DELETE CASCADE,
   category_id int4 references categories(id) ON DELETE CASCADE,
-  cost money
+  currency decimal(4,2)
 );
 

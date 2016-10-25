@@ -2,18 +2,18 @@ require_relative('../db/sql_runner')
 
 class Transaction
 
-attr_reader :id, :merchant_id, :category_id, :cost
+attr_reader :id, :merchant_id, :category_id, :currency
 
   def initialize( options )
     @id = options['id'].to_i
     @merchant_id = options['merchant_id'].to_i
     @category_id = options['category_id'].to_i
-    @cost = options['cost'].to_f
+    @currency = options['currency'].to_f
   end
  
  def save
-  sql = "INSERT INTO transactions (merchant_id, category_id, cost) VALUES 
-          (#{@merchant_id}, #{@category_id}, #{@cost} ) RETURNING *"
+  sql = "INSERT INTO transactions (merchant_id, category_id, currency) VALUES 
+          (#{@merchant_id}, #{@category_id}, #{@currency} ) RETURNING *"
   transactions_data = SqlRunner.run(sql).first
   @id = transactions_data['id'].to_i
  end
@@ -33,7 +33,13 @@ attr_reader :id, :merchant_id, :category_id, :cost
  def update
   sql = "UPDATE transactions SET ( merchant_id, category_id, cost) = (#{@merchant_id}, #{@item_id}, #{@cost} ) WHERE id = #{@id}"
   SqlRunner.run(sql)
-  end
+end
+
+def self.total
+    sql = "SELECT SUM(currency) FROM transactions"
+    data = SqlRunner.run(sql).first
+    return data['sum'].to_f
+end
 
 def self.delete(id)
   sql = "DELETE FROM transactions WHERE id = #{id}"
@@ -41,7 +47,7 @@ def self.delete(id)
 end
 
 def self.find(id)
-  sql = "SELECT * transactions WHERE id = #{id}"
+  sql = "SELECT * FROM transactions WHERE id = #{id}"
   return Transaction.map_item(sql)
 end
 
