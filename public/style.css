@@ -22,7 +22,17 @@ h2 {
 
 }
 
+.link{
+    font-size: 20px;
+    font-color: #ff0000;
+}
 
+.logo {
+    color: black;
+    font-family: Century Gothic;
+    font-size: 35px;
+    float: right;
+}
 
 .td {
     text-align: middle;
@@ -65,10 +75,7 @@ nav a:hover {
   background-color: #80002a;
 }
 
-nav {
-  padding: 10px;
-  background-color: lightblue;
-}
+
 
 .description{
 
@@ -81,4 +88,17 @@ nav {
     font-size: 15px;
 }
 
+.go_left{
+    float: left;
+}
+
+body {
+    background-image: url('http://thefrugalentrepreneur01.s3-us-west-2.amazonaws.com/wp-content/uploads/2010/10/23095038/frugal-entrepreneur.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-container{
+    background-color: rgba(255, 255, 255, 0.8);
+}
 </style>

@@ -6,16 +6,21 @@
   <head>
     <body>
       <nav>
+        <div class="go_right"></div>
+          <div id="logo" class="logo">FRUGALITY</div>
         <div>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/transactions">Transactions</a></li>
             <li><a href="/categories">Categories</a></li>
             <li><a href="/merchants">Merchants</a></li>
-            <%= yield %>
           </ul>
         </div>
       </nav>
+      <div class="main-container">
+        <%= yield %>
+      </div>
     </body>
     </html>
 
+   

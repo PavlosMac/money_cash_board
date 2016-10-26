@@ -12,6 +12,7 @@ attr_reader :id, :merchant_id, :category_id, :currency
   end
  
  def save
+  time_stamp = Time.now.to_i
   sql = "INSERT INTO transactions (merchant_id, category_id, currency) VALUES 
           (#{@merchant_id}, #{@category_id}, #{@currency} ) RETURNING *"
   transactions_data = SqlRunner.run(sql).first
@@ -29,7 +30,6 @@ attr_reader :id, :merchant_id, :category_id, :currency
   data = SqlRunner.run(sql).first
   return data['description']
  end
-
 
 
 def self.update(data)
