@@ -16,6 +16,11 @@ attr_reader :id, :description
     @id = results['id'].to_i
   end 
 
+  def total(id)
+    sql = "SELECT sum(currency) FROM transactions WHERE category_id = #{id}"
+    data = SqlRunner.run(sql).first
+    return data['sum'].to_f
+  end
 
   def update(data)
     sql = "UPDATE categories SET description = '#{data[:description]}' WHERE id = #{data[:id]}"
@@ -29,7 +34,8 @@ attr_reader :id, :description
 
   def self.find(id)
     sql = "SELECT * FROM categories WHERE id = #{id}"
-    return category_data = Category.map_item(sql)
+    category_data = Category.map_item(sql)
+    return category_data
   end
 
   def self.map_items(sql)
