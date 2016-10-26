@@ -7,57 +7,50 @@ ul {
     background-color: #333;
 }
 
-.nav = {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
+h1 {
+    font-family: Impact;
 }
 
-#li {
-    float: left;
-}
 
-#li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#li a:hover {
-    background-color: #111;
-}
 
 table, th, td {
-    border: 3px solid black;
-
-}
-table {
+    border: 5px double; 
+    border-color: #990000;
     border-collapse: collapse;
-}
-
-table {
+    font-family: verdana;
     width: 45%;
-}
-
-th {
     height: 40px;
-
-th {
-    text-align: middle;
+     text-align: middle;
 }
 
 .currencyinput {
-    border: 1px inset #ccc;
+    border: 2px inset #ccc;
 }
 .currencyinput input {
-    border: 0;
+    border: 5px;
 }
 
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  font-family: Helvetica;
+
+}
+
+nav a {
+  text-decoration: none;
+  background-color: #000080;
+  color: white;
+  margin: 0 10px;
+  padding: 5px 15px;
+}
+
+nav a:hover {
+  background-color: #80002a;
+}
+
+nav {
+  padding: 10px;
+  background-color: lightblue;
+}
 </style>
