@@ -39,6 +39,11 @@ h2 {
 
 }
 
+.select {
+
+    height: 50px;
+}
+
 table, th, td {
     border: 5px double; 
     border-color: #990000;
