@@ -2,19 +2,19 @@
 
 <form action="/transactions" method="post">        
 
-  <label for="merchant_id">Merchant:</label>
+<label class="description" for="merchant_id">Merchant:</label>
   <select name="merchant_id" id="merchant_id">    
     <% @merchants.each do |merchant| %>
     <option value="<%= merchant.id %>"><%= merchant.name  %></option> 
     <% end %>
   </select> |
-  <label for="category_id">Category description:</label>
+  <label class="description" for="category_id">Category:</label>
   <select name="category_id" id="category_id">
     <% @categories.each do |category| %>
     <option value="<%= category.id %>"><%= category.description %></option>
     <% end %>
-  </select>|
-  <label for="currency">Cost</label>
+  </select> |
+  <label class="description" for="currency">Cost:</label>
   <span class="currencyinput">£<input type="number" min="0" step="0.01" name="currency"></span>
   <input type='submit' value="Submit entry">
 </form>
