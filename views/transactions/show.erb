@@ -1,5 +1,7 @@
 <h1>Transaction</h1>
 
-<p>Merchant Name: &nbsp; <%= @transaction.merchant %></p>Cost: &nbsp; £ <%= @transaction.currency %><br><br>
+<p class="total">Merchant Name: &nbsp; <%= @transaction.merchant %></p>
+
+<p class="total"> Cost: &nbsp; £ <%= @transaction.currency %></p><br><br>
   <a href="/transactions/<%= @transaction.id %>/edit">Update Entry</a>
     <br><br><a href="/transactions">All Transactions</a>

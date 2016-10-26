@@ -3,11 +3,11 @@
   <form action="/transactions/<%= @transaction.id %>" method="post">
     <input type="hidden" name="_method" value="put">
 
-    <label for="category">Category:  </label><%=  @transaction.category %><br><br>
+    <label class="total" for="category">Category:  </label><%=  @transaction.category %><br><br>
     
-    <label for="merchant">Merchant:  </label><%= @transaction.merchant %><br><br>
+    <label class="total" for="merchant">Merchant:  </label><%= @transaction.merchant %><br><br>
     
-    <label for="currency">New cost</label>
+    <label class="total" for="currency">New value</label>
       <span class="currencyinput">£<input type="number" min="0" step="0.01" name="currency"></span>
         <input type='submit' value="Update Transaction">
   </form>
