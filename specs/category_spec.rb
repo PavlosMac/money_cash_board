@@ -1,23 +1,21 @@
 require('minitest/autorun')
 require('minitest/rg')
-require_relative('../models/item')
+require_relative('../models/category')
 
-class TestItem < MiniTest::Test
+class TestCategory < MiniTest::Test
 
   def setup
       options = { 'description' => 'food',
               'cost' => 20.00
     }
 
-    @item = Item.new(options)
+    @category = Category.new(options)
   end
 
   def test_item_has_description
-    assert_equal('food', @item.description)
+    assert_equal('food', @category.description)
   end
 
-  def test_item_has_cost
-    assert_equal(20.00, @item.cost)
-  end
+
 
 end

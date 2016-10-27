@@ -24,13 +24,6 @@ get '/merchants/:id' do
  erb(:'merchants/show')
 end 
 
-get '/merchant/:id/edit' do
-  # should return  a form for editing a merchant
-end
-
-put '/merchants/:id' do
-  # should update a single merchant with id
-end
 
 delete '/merchants/:id' do
     Merchant.delete( params[:id] )
